@@ -1,6 +1,6 @@
 // Get the canvas element as a const
 const canvas = document.getElementById("renderCanvas");
-// Create the BABYLON 3D engine, and attach it to the canvas
+// Create the BABYON 3D engine, and attach it to the canvas
 const engine = new BABYLON.Engine(canvas, true);
 // The createScene function
 const createScene = async function () {
@@ -43,8 +43,9 @@ const createScene = async function () {
   const boxMat = new BABYLON.StandardMaterial("boxMat");
   boxMat.diffuseColor = new BABYLON.Color3(1, 0.6, 0);
   box.material = boxMat;
-  box.position.x = 2;
+  box.position.z = 2;
   box.position.y = 0.5;
+
   // The initial position of the box is 0, 0, 0 so with the referenceSpaceType: "unbounded" it will be located on the viewer's head, which is the origin point of the scene - reposition the box as you'd like
   // box.position.y = 0.5;
   // box.position.z = 0.5;
@@ -80,7 +81,6 @@ const createScene = async function () {
     // STEP 3b: Set up the action to animate the effect with InterpolateValueAction
     new BABYLON.InterpolateValueAction(
       // STEP 3c: Add a hover action with OnPointerOverTrigger, to scale the box 1.2 times its size over a quarter of a second
-
       BABYLON.ActionManager.OnPointerOverTrigger,
       box,
       "scaling",
